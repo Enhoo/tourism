@@ -5,7 +5,7 @@ import {
 
 function apiRequest(obj) {
 	return new Promise((resolve, reject) => {
-		const baseUrl = 'http://192.168.111.253:8097/hatu/';
+		const baseUrl = 'http://121.40.67.72:10010/';
 		// const baseUrl = 'https://bms.ihatoo.com:8097/hatu/';
 
 		let method = obj.method || "GET",
@@ -38,7 +38,7 @@ function apiRequest(obj) {
 				switch (Number(res.code)) {
 					case 200:
 						//成功返回
-						resolve(res)
+						resolve(res.data)
 						break;
 					case 201:
 						//Token失效，返回登录页
