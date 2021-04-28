@@ -5,8 +5,7 @@ import {
 
 function apiRequest(obj) {
 	return new Promise((resolve, reject) => {
-		const baseUrl = 'http://121.40.67.72:10010/';
-		// const baseUrl = 'https://bms.ihatoo.com:8097/hatu/';
+		const baseUrl = 'https://www.lttq7.cn/';
 
 		let method = obj.method || "GET",
 			url = baseUrl + obj.url || "",
@@ -40,20 +39,6 @@ function apiRequest(obj) {
 						//成功返回
 						resolve(res.data)
 						break;
-					case 201:
-						//Token失效，返回登录页
-						removeToken()
-						uni.showModal({
-							showCancel: false,
-							title: '提示',
-							content: res.msg,
-							success: () => {
-								uni.reLaunch({
-									url: '/pages/login/index'
-								})
-							}
-						})
-						break;
 					default:
 						// 错误处理
 						uni.showToast({
@@ -65,6 +50,7 @@ function apiRequest(obj) {
 				uni.hideLoading()
 			}),
 			fail: ((err) => {
+				console.log(err)
 				reject(err)
 				uni.hideLoading()
 				uni.showModal({

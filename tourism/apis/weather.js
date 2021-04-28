@@ -5,9 +5,9 @@ import request from '../utils/request.js';
  * @method get
  * @return {[type]}         [description]
  */
-export function getWeather(data) {
+export function getWeather(adCode = 330105) {
 	return request({
-		url: 'weather?adCode=330105&extensions=all',
+		url: `weather?adCode=${adCode}&extensions=all`,
 		method: 'get',
 	})
 }
@@ -17,9 +17,9 @@ export function getWeather(data) {
  * @method get
  * @return {[type]}         [description]
  */
-export function getWeatherLive(data) {
+export function getWeatherLive(adCode = 330105) {
 	return request({
-		url: 'weather?adCode=330105&extensions=base',
+		url: `weather?adCode=${adCode}&extensions=base`,
 		method: 'get',
 	})
 }
